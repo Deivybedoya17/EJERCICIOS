@@ -1,4 +1,4 @@
-//Escriba una función que muestre los números de 1 a n, teniendo n como parámetro
+//4. Escriba una función que muestre los números de 1 a n, teniendo n como parámetro
 let contador;
 let n = parseInt(prompt("ingrese un numero"))
 function cadena(n) {

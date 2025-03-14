@@ -1,4 +1,4 @@
-//escriba una funcion que reciba un numero n como parametreo y genere su factorial
+// 5. escriba una funcion que reciba un numero n como parametreo y genere su factorial
 
 let n = parseInt(prompt("Ingresa un número entero no negativo para calcular su factorial"));
 

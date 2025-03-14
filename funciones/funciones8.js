@@ -5,3 +5,4 @@ function obtenerPrimeraLetra(nombre) {
     return nombre.charAt(0);
 }
 alert(`La primera letra del nombre es: ${obtenerPrimeraLetra(nombre)}`);
+
