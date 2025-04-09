@@ -22,7 +22,6 @@
 // Método estático registrarEmpleado() que incremente ese número
 // Método asignarVehiculo(empleado, vehiculo) que imprime una relación
 
-
 class Persona {
     #nombre
     constructor(nombre, edad) {
@@ -46,20 +45,15 @@ class Persona {
     }
 }
 
-// const Persona1 = new Persona ("Deivy")
-// Persona1.caminar()
-// console.log(Persona1.getNombre())
-
-
 class Empleado extends Persona {
     #salario
-    constructor(nombre, salario) {
-        super(nombre);
+    constructor(nombre, edad,salario) {
+        super(nombre, edad);
         this.#salario = salario;
     }
 
     trabajar(){
-        console.log(this.getNombre() + " esta trabajando")
+        console.log(`${this.getNombre()} esta trabajando`)
     }
 
     getsalario(){
@@ -68,12 +62,57 @@ class Empleado extends Persona {
 
     setsalario(salario){
         this.#salario = salario;
-        console.log("El salario esta actualizado"); 
+        console.log("El salario esta actualizado a: "+ this.#salario);
+    }
+    getedad(){
+        return super.getedad()
+    }
+    setedad(edad){
+        super.setedad(edad);
+
     }
 }
 
-const empleado1 = new Empleado("Juan", 2000);
+const empleado1 = new Empleado("juan", 25,2000000)
 empleado1.trabajar();
-console.log("Salario inicial:", empleado1.getsalario()); 
-empleado1.setsalario(2500); 
-console.log("Nuevo salario:", empleado1.getsalario()); 
+console.log("salario inicial:", empleado1.getsalario());
+empleado1.setsalario(2500000); // Ahora se proporciona un valor para el salario
+console.log("nuevo salario:",empleado1.getsalario());
+console.log("Edad inicial:",empleado1.getedad());
+empleado1.setedad(31)
+console.log("nuevo edad:",empleado1.getedad());
+
+class CuentaBancaria{
+    #saldo
+    constructor(saldo) {
+        this.#saldo = saldo;
+    }
+
+    #actualizarSaldo(monto){
+        this.#saldo += monto;
+    }
+    depositar(monto){
+        this.#actualizarSaldo(monto);
+        console.log(`se ha depositado ${monto}. Nuevo saldo ${this.#saldo}`);
+    }
+    retirar(monto){
+        this.#actualizarSaldo(-monto);
+        console.log(`se ha retirado ${monto}. nuevo saldo ${this.#saldo}`);
+    }
+    getsaldo(){
+        return this.#saldo
+    }
+}
+
+const cuenta = new CuentaBancaria(1000);
+cuenta.depositar(500);
+cuenta.retirar(200);
+console.log("saldo final:", cuenta.getsaldo());
+
+
+class vehiculo {
+    constructor(parameters) {
+        
+    }
+}
+
