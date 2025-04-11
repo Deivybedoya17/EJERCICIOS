@@ -10,6 +10,7 @@
 // Atributo privado #saldo
 // Método privado #actualizarSaldo(monto)
 // Métodos públicos depositar(monto) y retirar(monto) que usen #actualizarSaldo
+
 // Clase base Vehiculo
 // Atributos públicos marca, modelo
 // Método privado #encenderMotor()
@@ -30,11 +31,10 @@ class Persona {
         this.edad = edad;
     }
     caminar(){
-        console.log(this.#nombre +" esta caminando")
-
+        console.log(`${this.#nombre} esta caminando`);
     }
     getNombre(){
-        return this.#nombre
+        return this.#nombre;
     }
 
     getedad(){
@@ -46,20 +46,15 @@ class Persona {
     }
 }
 
-// const Persona1 = new Persona ("Deivy")
-// Persona1.caminar()
-// console.log(Persona1.getNombre())
-
-
 class Empleado extends Persona {
     #salario
-    constructor(nombre, salario) {
-        super(nombre);
+    constructor(nombre, edad, salario) {
+        super(nombre, edad);
         this.#salario = salario;
     }
 
     trabajar(){
-        console.log(this.getNombre() + " esta trabajando")
+        console.log(`${this.getNombre()} esta trabajando`);
     }
 
     getsalario(){
@@ -70,10 +65,58 @@ class Empleado extends Persona {
         this.#salario = salario;
         console.log("El salario esta actualizado"); 
     }
+
+    getedad(){
+        return super.getedad();
+    }
+
+    setedad(edad) {
+        super.setedad(edad);
+        console.log("La edad esta actualizada");
+    }
 }
 
-const empleado1 = new Empleado("Juan", 2000);
+const empleado1 = new Empleado("Juan", 30, 2000);
 empleado1.trabajar();
 console.log("Salario inicial:", empleado1.getsalario()); 
 empleado1.setsalario(2500); 
-console.log("Nuevo salario:", empleado1.getsalario()); 
+console.log("Nuevo salario:", empleado1.getsalario());
+console.log("Edad inicial:", empleado1.getedad());
+empleado1.setedad(31)
+console.log("Nueva edad:", empleado1.getedad())
+
+class CuentaBancaria {
+    #saldo
+    #actualizarSaldo
+    constructor(saldo){
+        this.#saldo = saldo;
+    }
+
+
+    
+    #actualizarSaldo(monto){
+        this.#saldo += monto;
+    }
+    depositar(monto){
+        this.#actualizarSaldo(monto);
+        console.log(`Se ha depositado ${monto}. Nuevo saldo: ${this.#saldo}`);
+    }
+    retirar(monto){
+        this.#actualizarSaldo(-monto);
+        console.log(`Se ha retirado ${monto}. Nuevo saldo: ${this.#saldo}`);
+    }
+    getSaldo(){
+        return this.#saldo;
+    }
+}
+const cuenta = new CuentaBancaria(1000);
+cuenta.depositar(500);
+cuenta.retirar(200);
+console.log("Saldo final:", cuenta.getSaldo());
+
+class vehiculo {
+    
+    constructor(parameters) {
+        
+    }
+}
