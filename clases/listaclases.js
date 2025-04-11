@@ -42,8 +42,3 @@
 // privado actualizarSaldo(). Crear métodos públicos para depositar() y retirar()
 // que usen actualizarSaldo(
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 26f1fc2100ce6a91e4de7dfabd7cc86bfd0544c3
